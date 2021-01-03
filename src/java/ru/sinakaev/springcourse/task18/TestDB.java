@@ -40,14 +40,10 @@ public class TestDB extends HttpServlet {
             out.println("SUCCESS!!!");
 
             myConn.close();
-
         }
         catch (Exception exc) {
             exc.printStackTrace();
             throw new ServletException(exc);
         }
-
-
     }
-
 }

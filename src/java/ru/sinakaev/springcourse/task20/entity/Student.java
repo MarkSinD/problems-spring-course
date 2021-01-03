@@ -21,7 +21,7 @@ public class Student {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name="course_student", joinColumns=@JoinColumn(name="student_id"), inverseJoinColumns=@JoinColumn(name="course_id"))
     List<Course> courseList;
 
@@ -82,10 +82,12 @@ public class Student {
 
     @Override
     public String toString() {
+
         return "\nStudent = " +
                 "\nid=" + id +
                 "\nfirst_name='" + first_name +
                 "\nlast_name='" + last_name +
-                "\nemail='" + email;
+                "\nemail='" + email+
+                "\n" + courseList;
     }
 }

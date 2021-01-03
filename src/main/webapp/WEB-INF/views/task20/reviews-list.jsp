@@ -42,17 +42,35 @@
     />
 </div>
 
-<div id="container">
+<c:url var="id" value="/show/showInstructorsListSorted">
+    <c:param name="type" value="id" />
+</c:url>
 
+<c:url var="course" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="course" />
+</c:url>
+
+<c:url var="comments" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="comments" />
+</c:url>
+
+<div id="container">
     <div id="content">
 
         <!--  add our html table here -->
-
         <table>
             <tr>
-                <th>id</th>
-                <th>Course</th>
-                <th>Comments</th>
+                <th>
+                    <a class="table_link">id</a>
+                </th>
+
+                <th>
+                    <a class="table_link">Course</a>
+                </th>
+
+                <th>
+                    <a class="table_link">Comments</a>
+                </th>
                 <th>Action</th>
             </tr>
 
@@ -82,11 +100,8 @@
                                         return false"><img class="table_icon" src="${pageContext.request.contextPath}/resources/images/remove.png">Delete</a>
                     </td>
                 </tr>
-
             </c:forEach>
-
         </table>
-
     </div>
     <!-- put new button: Add Customer -->
 
@@ -96,10 +111,7 @@
     />
 
 </div>
-
-
 </body>
-
 </html>
 
 

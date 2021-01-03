@@ -18,7 +18,7 @@
 <div class="tabs">
     <input type="button" value="Instructors"
            onclick="window.location.href='showInstructorsList'; return false;"
-           class="tab active"
+           class="tab"
     />
 
     <input type="button" value="Instructor Details"
@@ -33,7 +33,7 @@
 
     <input type="button" value="Reviews"
            onclick="window.location.href='showReviewsList'; return false;"
-           class="tab"
+           class="tab active"
     />
 
     <input type="button" value="Students"
@@ -42,19 +42,46 @@
     />
 </div>
 
+<c:url var="id" value="/show/showInstructorsListSorted">
+    <c:param name="type" value="id" />
+</c:url>
+
+<c:url var="first_name" value="/show/showInstructorsListSorted">
+    <c:param name="type" value="first_name" />
+</c:url>
+
+<c:url var="last_name" value="/show/showInstructorsListSorted">
+    <c:param name="type" value="last_name" />
+</c:url>
+
+<c:url var="email" value="/show/showInstructorsListSorted">
+    <c:param name="type" value="email" />
+</c:url>
 
 <div id="container">
 
     <div id="content">
 
         <!--  add our html table here -->
-
         <table>
             <tr>
-                <th>id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
+                <th>
+                    <a class="table_link">id</a>
+                </th>
+
+                <th>
+                    <a class="table_link">first name</a>
+
+                </th>
+
+                <th>
+                    <a class="table_link">last name</a>
+
+                </th>
+
+                <th>
+                    <a class="table_link">email</a>
+                </th>
                 <th>Action</th>
             </tr>
 
@@ -86,9 +113,7 @@
                 </tr>
 
             </c:forEach>
-
         </table>
-
     </div>
     <!-- put new button: Add Customer -->
 

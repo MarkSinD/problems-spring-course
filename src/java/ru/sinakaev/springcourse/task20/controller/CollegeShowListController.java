@@ -9,6 +9,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.sinakaev.springcourse.task20.entity.*;
 import ru.sinakaev.springcourse.task20.service.CollegeService;
 
@@ -30,9 +31,32 @@ public class CollegeShowListController {
 
     @RequestMapping("/showInstructorsList")
     public String getInstructorsList(Model theModel){
-        List<Instructor> instructor = collegeService.getInstructors();
+        List<Instructor> instructor = collegeService.getInstructorsById();
         theModel.addAttribute("instructors", instructor);
-        System.out.println(theModel.getAttribute("instructor"));
+        return "instructors-list";
+    }
+
+    @RequestMapping("/showInstructorsListSorted")
+    public String getInstructorsListSorted(@RequestParam("type") String type , Model theModel){
+        List<Instructor> instructor;
+
+        System.out.println(type.getClass());
+        if(type.equals("id"))
+            instructor = collegeService.getInstructorsById();
+
+        else if(type.equals("first_name"))
+            instructor = collegeService.getInstructorsByFirstName();
+
+        else if(type.equals("last_name"))
+            instructor = collegeService.getInstructorsByLastName();
+
+        else if(type.equals("email"))
+            instructor = collegeService.getInstructorsByEmail();
+
+        else
+            instructor = null;
+
+        theModel.addAttribute("instructors", instructor);
         return "instructors-list";
     }
 
@@ -53,9 +77,34 @@ public class CollegeShowListController {
     @RequestMapping("/showInstructorDetailsList")
     public String getInstructorDetailsList(Model theModel){
         List<InstructorDetail> instructorDetails = collegeService.getInstructorDetails();
+
         theModel.addAttribute("instructorDetails", instructorDetails);
         System.out.println("Instructor Details");
         return "instructor-details-list";
+    }
+
+    @RequestMapping("/showInstructorsListDetailsSorted")
+    public String getInstructorsDetailsListSorted(@RequestParam("type") String type , Model theModel){
+        List<Instructor> instructor;
+
+        System.out.println(type.getClass());
+        if(type.equals("id"))
+            instructor = collegeService.getInstructorsById();
+
+        else if(type.equals("first_name"))
+            instructor = collegeService.getInstructorsByFirstName();
+
+        else if(type.equals("last_name"))
+            instructor = collegeService.getInstructorsByLastName();
+
+        else if(type.equals("email"))
+            instructor = collegeService.getInstructorsByEmail();
+
+        else
+            instructor = null;
+
+        theModel.addAttribute("instructors", instructor);
+        return "instructors-list";
     }
 
     @RequestMapping("/showCourseList")
@@ -66,6 +115,30 @@ public class CollegeShowListController {
         return "courses-list";
     }
 
+    @RequestMapping("/showCourseListSorted")
+    public String getCourseListSorted(@RequestParam("type") String type , Model theModel){
+        List<Instructor> instructor;
+
+        System.out.println(type.getClass());
+        if(type.equals("id"))
+            instructor = collegeService.getInstructorsById();
+
+        else if(type.equals("first_name"))
+            instructor = collegeService.getInstructorsByFirstName();
+
+        else if(type.equals("last_name"))
+            instructor = collegeService.getInstructorsByLastName();
+
+        else if(type.equals("email"))
+            instructor = collegeService.getInstructorsByEmail();
+
+        else
+            instructor = null;
+
+        theModel.addAttribute("instructors", instructor);
+        return "instructors-list";
+    }
+
     @RequestMapping("/showReviewsList")
     public String getReviewsList(Model theModel){
         List<Review> reviews = collegeService.getReviews();
@@ -73,10 +146,58 @@ public class CollegeShowListController {
         return "reviews-list";
     }
 
+    @RequestMapping("/showReviewsListSorted")
+    public String getReviewsListSorted(@RequestParam("type") String type , Model theModel){
+        List<Instructor> instructor;
+
+        System.out.println(type.getClass());
+        if(type.equals("id"))
+            instructor = collegeService.getInstructorsById();
+
+        else if(type.equals("first_name"))
+            instructor = collegeService.getInstructorsByFirstName();
+
+        else if(type.equals("last_name"))
+            instructor = collegeService.getInstructorsByLastName();
+
+        else if(type.equals("email"))
+            instructor = collegeService.getInstructorsByEmail();
+
+        else
+            instructor = null;
+
+        theModel.addAttribute("instructors", instructor);
+        return "instructors-list";
+    }
+
     @RequestMapping("/showStudentsList")
     public String getStudentsList(Model theModel){
         List<Student> students = collegeService.getStudents();
         theModel.addAttribute("students", students);
         return "students-list";
+    }
+
+    @RequestMapping("/showStudentsListSorted")
+    public String getStudentsListSorted(@RequestParam("type") String type , Model theModel){
+        List<Instructor> instructor;
+
+        System.out.println(type.getClass());
+        if(type.equals("id"))
+            instructor = collegeService.getInstructorsById();
+
+        else if(type.equals("first_name"))
+            instructor = collegeService.getInstructorsByFirstName();
+
+        else if(type.equals("last_name"))
+            instructor = collegeService.getInstructorsByLastName();
+
+        else if(type.equals("email"))
+            instructor = collegeService.getInstructorsByEmail();
+
+        else
+            instructor = null;
+
+        theModel.addAttribute("instructors", instructor);
+        return "instructors-list";
     }
 }

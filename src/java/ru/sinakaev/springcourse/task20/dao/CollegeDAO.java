@@ -5,7 +5,13 @@ import ru.sinakaev.springcourse.task20.entity.*;
 import java.util.List;
 
 public interface CollegeDAO {
-    List<Instructor> getInstructors();
+    List<Instructor> getInstructorsById();
+    List<Instructor> getInstructorsByFirstName();
+    List<Instructor> getInstructorsByLastName();
+    List<Instructor> getInstructorsByEmail();
+
+    public Course getCourseById(int id);
+
     List<InstructorDetail> getInstructorDetails();
     List<Course> getCourses();
     List<Review> getReviews();
@@ -22,4 +28,6 @@ public interface CollegeDAO {
     void saveCourse(Course course);
     void saveReview(Review review);
     void saveStudent(Student student);
+
+
 }

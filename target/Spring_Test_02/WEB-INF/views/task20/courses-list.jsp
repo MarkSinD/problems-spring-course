@@ -42,39 +42,59 @@
     />
 </div>
 
-<div id="container">
+<c:url var="id" value="/show/showCourseListSorted">
+    <c:param name="type" value="id" />
+</c:url>
 
+<c:url var="title" value="/show/showCourseListSorted">
+    <c:param name="type" value="title" />
+</c:url>
+
+<c:url var="instructor_name" value="/show/showCourseListSorted">
+    <c:param name="type" value="instructor_name" />
+</c:url>
+
+
+
+
+
+<div id="container">
     <div id="content">
 
         <!--  add our html table here -->
-
         <table>
             <tr>
-                <th>id</th>
-                <th>Title</th>
-                <th>Instructor Name</th>
+                <th>
+                    <a class="table_link">id</a>
+                </th>
+
+                <th>
+                    <a class="table_link">Title</a>
+
+                </th>
+
+                <th>
+                    <a class="table_link">Instructor Name</a>
+                </th>
                 <th>Action</th>
             </tr>
 
             <!-- loop over and print our customers -->
             <c:forEach var="tempCourse" items="${courses}">
-
-                <!-- construct an "update" link with customer id -->
-                <c:url var="updateLink" value="/customer/showFormForUpdate">
-                    <c:param name="courseId" value="${tempCourse.id}" />
-                </c:url>
-
-                <c:url var="deleteLink" value="/delete/deleteCourse">
-                    <c:param name="courseId" value="${tempCourse.id}" />
-                </c:url>
-
                 <tr>
                     <td> ${tempCourse.id}</td>
                     <td> ${tempCourse.title} </td>
                     <td> ${tempCourse.instructor.first_name} ${tempCourse.instructor.last_name} </td>
 
+                    <c:url var="updateLink" value="/customer/showFormForUpdate">
+                        <c:param name="courseId" value="${tempCourse.id}" />
+                    </c:url>
+
+                    <c:url var="deleteLink" value="/delete/deleteCourse">
+                        <c:param name="courseId" value="${tempCourse.id}" />
+                    </c:url>
+
                     <td>
-                        <!-- display the update link -->
                         <a class="table_link" href="${updateLink}"><img class="table_icon" src="${pageContext.request.contextPath}/resources/images/refresh.png">Update</a>
                         <a class="table_link" href="${deleteLink}"
                            onclick="if (!(confirm('Are you sure you want to delete this customer?')))
@@ -83,9 +103,7 @@
                 </tr>
 
             </c:forEach>
-
         </table>
-
     </div>
     <!-- put new button: Add Customer -->
 
@@ -93,12 +111,8 @@
            onclick="window.location.href='/edit/showCourseFormAdd'; return false;"
            class="add-button"
     />
-
 </div>
-
-
 </body>
-
 </html>
 
 

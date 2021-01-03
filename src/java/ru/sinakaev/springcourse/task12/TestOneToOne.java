@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class TestOneToOne {
     public static void main(String[] args) {
 
-        SessionFactory factory = new Configuration().configure("WEB-INF/hibernate.cfg.xml").addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetail.class).buildSessionFactory();
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetail.class).buildSessionFactory();
         Session session = factory.getCurrentSession();
 
         try {
@@ -16,11 +16,11 @@ public class TestOneToOne {
 
             session.beginTransaction();
 
-            int theId = 1;
+            int theId = 4;
+            Instructor instructor = session.get(Instructor.class, theId);
             InstructorDetail instructorDetail = session.get(InstructorDetail.class, theId);
-
-            System.out.println("Found instructor : " + instructorDetail);
-            System.out.println("The associated instructor: " + instructorDetail.getInstructor());
+            session.delete(instructorDetail);
+            System.out.println("Found instructorDetail : " + instructor);
 
             session.getTransaction().commit();
         }

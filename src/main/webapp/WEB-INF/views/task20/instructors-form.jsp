@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,22 @@
 			</tr>
 
 			<tr>
-				<td><a href="${pageContext.request.contextPath}/show/showInstructorsList"><input class="back-btn" type="submit" value="Back"></a></td>
+				<td><label>Instructor Detail :</label></td>
+				<td>
+					<select name="instructorDetail.id">
+						<option value="NONE">---Select---</option>
+						<c:forEach items="${instructorDetailList}" var="i">
+							<option value="${i.id}">
+								Channel: ${i.youtubeChannel} Hobby:${i.hobby}
+							</option>
+						</c:forEach>
+					</select>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td><a href="${pageContext.request.contextPath}/show/showInstructorsList"><input class="back-btn" value="Back"></a></td>
 				<td><input type="submit" value="Save" class="save" /></td>
 			</tr>
 

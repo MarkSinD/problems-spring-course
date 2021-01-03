@@ -26,25 +26,12 @@
 	<h3>Save Instructor Detail</h3>
 
 	<form:form action="/save/saveInstructorDetail" modelAttribute="instructorDetail" method="POST">
-
-		<!-- need to associate this data with customer id -->
-		<form:hidden path="id" />
-
 		<table>
 			<tbody>
-			<tr>
-				<td><label>Instructor:</label></td>
 
+			<!-- need to associate this data with customer id -->
+			<form:hidden path="id" />
 
-				<td>
-					<form:select path="instructor">
-						<form:option value="0" label="--- Select One ---"></form:option>
-						<c:forEach var='in' items='${instructorList}'  >
-							<form:option value="${in}" label="${in.first_name}" />
-						</c:forEach>
-					</form:select>
-				<td>
-			</tr>
 
 			<tr>
 				<td><label>Youtube channel:</label></td>
@@ -56,11 +43,11 @@
 				<td><form:input path="hobby" /></td>
 			</tr>
 
+
 			<tr>
 				<td><a href="${pageContext.request.contextPath}/show/showInstructorDetailsList"><input class="back-btn" value="Back"></a></td>
 				<td><input type="submit" value="Save" class="save" /></td>
 			</tr>
-
 
 			</tbody>
 		</table>
@@ -74,3 +61,4 @@
 </body>
 
 </html>
+

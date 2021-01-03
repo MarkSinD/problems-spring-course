@@ -25,21 +25,21 @@ public class CollegeDeleteController {
     public String deleteInstructorDetail(@RequestParam("instructorDetailId") int theId){
         System.out.println("Delete Instructor Detail" + theId);
         collegeService.deleteInstructorDetail(theId);
-        return "redirect:/show/showInstructorsList";
+        return "redirect:/show/showInstructorDetailsList";
     }
 
     @RequestMapping("/deleteCourse")
     public String deleteCourse(@RequestParam("courseId") int theId){
         System.out.println("2. Delete Course" + theId);
         collegeService.deleteCourse(theId);
-        return "redirect:/show/showInstructorsList";
+        return "redirect:/show/showCourseList";
     }
 
     @RequestMapping("/deleteReview")
     public String deleteReview(@RequestParam("reviewId") int theId){
         System.out.println("2. Delete Review" + theId);
         collegeService.deleteReview(theId);
-        return "redirect:/show/showInstructorsList";
+        return "redirect:/show/showReviewsList";
     }
 
     @RequestMapping("/deleteStudent")

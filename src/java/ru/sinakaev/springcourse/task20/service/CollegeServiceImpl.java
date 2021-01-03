@@ -16,9 +16,21 @@ public class CollegeServiceImpl implements CollegeService {
 
     @Override
     @Transactional
-    public List<Instructor> getInstructors() {
-        return collegeDAO.getInstructors();
+    public List<Instructor> getInstructorsById() {
+        return collegeDAO.getInstructorsById();
     }
+
+    @Override
+    @Transactional
+    public List<Instructor> getInstructorsByFirstName() { return collegeDAO.getInstructorsByFirstName(); }
+
+    @Override
+    @Transactional
+    public List<Instructor> getInstructorsByLastName() { return collegeDAO.getInstructorsByLastName(); }
+
+    @Override
+    @Transactional
+    public List<Instructor> getInstructorsByEmail() { return collegeDAO.getInstructorsByEmail(); }
 
     @Override
     @Transactional
@@ -42,6 +54,11 @@ public class CollegeServiceImpl implements CollegeService {
     @Transactional
     public List<Student> getStudents() {
         return collegeDAO.getStudents();
+    }
+
+    @Override
+    public Course getCourseById(int id) {
+        return null;
     }
 
     @Override

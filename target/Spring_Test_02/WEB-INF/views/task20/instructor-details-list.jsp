@@ -42,31 +42,57 @@
     />
 </div>
 
-<div id="container">
+<c:url var="id" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="id" />
+</c:url>
 
+<c:url var="youtube_channel" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="youtube_channel" />
+</c:url>
+
+<c:url var="hobby" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="hobby" />
+</c:url>
+
+<c:url var="instructor_name" value="/show/showInstructorsListDetailsSorted">
+    <c:param name="type" value="hobby" />
+</c:url>
+
+<c:url var="updateLink" value="/customer/showFormForUpdate">
+    <c:param name="instructorDetailId" value="${tempInstructorDetail.id}" />
+</c:url>
+
+<c:url var="deleteLink" value="/delete/deleteInstructorDetail">
+    <c:param name="instructorDetailId" value="${tempInstructorDetail.id}" />
+</c:url>
+
+<div id="container">
     <div id="content">
 
         <!--  add our html table here -->
-
         <table>
             <tr>
-                <th>id</th>
-                <th>Youtube Channel</th>
-                <th>Hobby</th>
+                <th>
+                    <a class="table_link">id</a>
+                </th>
+
+                <th>
+                    <a class="table_link">Youtube Channel</a>
+
+                </th>
+
+                <th>
+                    <a class="table_link">Hobby</a>
+
+                </th>
+
                 <th>Action</th>
             </tr>
 
             <!-- loop over and print our customers -->
             <c:forEach var="tempInstructorDetail" items="${instructorDetails}">
 
-                <!-- construct an "update" link with customer id -->
-                <c:url var="updateLink" value="/customer/showFormForUpdate">
-                    <c:param name="instructorDetailId" value="${tempInstructorDetail.id}" />
-                </c:url>
 
-                <c:url var="deleteLink" value="/delete/deleteInstructorDetail">
-                    <c:param name="instructorDetailId" value="${tempInstructorDetail.id}" />
-                </c:url>
 
                 <tr>
                     <td> ${tempInstructorDetail.id}</td>

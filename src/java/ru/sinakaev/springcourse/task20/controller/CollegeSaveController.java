@@ -21,9 +21,8 @@ public class CollegeSaveController {
     }
 
     @RequestMapping("/saveInstructorDetail")
-    public String saveInstructorDetail(@ModelAttribute("instructorDetail") InstructorDetail instructorDetail){
-        System.out.println("Было");
-        System.out.println(instructorDetail.getHobby());
+    public String saveInstructorDetail(@ModelAttribute("instructorDetail") InstructorDetail instructorDetail,
+                                       @ModelAttribute Instructor instructor){
         collegeService.saveInstructorDetail(instructorDetail);
         return "redirect:/show/showInstructorDetailsList";
     }
@@ -37,12 +36,13 @@ public class CollegeSaveController {
     @RequestMapping("/saveReview")
     public String saveReview(@ModelAttribute("review") Review review){
         collegeService.saveReview(review);
-        return "redirect:/show/showInstructorsList";
+        return "redirect:/show/showReviewsList";
     }
 
     @RequestMapping("/saveStudent")
-    public String saveStudent(@ModelAttribute("instructor") Student student){
+    public String saveStudent(@ModelAttribute("student") Student student){
+        System.out.println(student.getCourseList());
         collegeService.saveStudent(student);
-        return "redirect:/show/showInstructorsList";
+        return "redirect:/show/showStudentsList";
     }
 }

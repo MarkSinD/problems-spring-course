@@ -8,7 +8,7 @@ import ru.sinakaev.springcourse.task20.entity.*;
 
 public class TestManyToMany {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
+        SessionFactory sessionFactory = new Configuration().configure("WEB-INF/hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
                 .addAnnotatedClass(Course.class)
@@ -17,14 +17,11 @@ public class TestManyToMany {
                 .buildSessionFactory();
 
         Session session = sessionFactory.getCurrentSession();
-        int index = 11;
         try{
             session.beginTransaction();
 
-            Instructor instructor = session.get(Instructor.class, index);
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, 5);
+            InstructorDetail instructorDetail = session.get(InstructorDetail.class, 11);
 
-            instructorDetail.setInstructor(instructor);
 
             session.getTransaction().commit();
         }finally {

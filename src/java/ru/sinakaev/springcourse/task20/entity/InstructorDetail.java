@@ -1,5 +1,6 @@
 package ru.sinakaev.springcourse.task20.entity;
 
+
 import javax.persistence.*;
 
 @Entity

@@ -42,6 +42,26 @@
     />
 </div>
 
+<c:url var="id" value="/show/showStudentsListSorted">
+        <c:param name="type" value="id" />
+    </c:url>
+
+<c:url var="first_name" value="/show/showStudentsListSorted">
+    <c:param name="type" value="first_name" />
+</c:url>
+
+<c:url var="last_name" value="/show/showStudentsListSorted">
+    <c:param name="type" value="last_name" />
+</c:url>
+
+<c:url var="email" value="/show/showStudentsListSorted">
+    <c:param name="type" value="email" />
+</c:url>
+
+<c:url var="course" value="/show/showStudentsListSorted">
+    <c:param name="type" value="course" />
+</c:url>
+
 <div id="container">
 
     <div id="content">
@@ -50,11 +70,25 @@
 
         <table>
             <tr>
-                <th>id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Course</th>
+                <th>
+                    <a class="table_link">id</a>
+                </th>
+
+                <th>
+                    <a class="table_link">first name</a>
+                </th>
+
+                <th>
+                    <a class="table_link">last name</a>
+                </th>
+
+                <th>
+                    <a class="table_link">email</a>
+                </th>
+
+                <th>
+                    <a class="table_link">course</a>
+                </th>
                 <th>Action</th>
             </tr>
 
@@ -91,9 +125,7 @@
                 </tr>
 
             </c:forEach>
-
         </table>
-
     </div>
     <!-- put new button: Add Customer -->
 
@@ -103,10 +135,7 @@
     />
 
 </div>
-
-
 </body>
-
 </html>
 
 
